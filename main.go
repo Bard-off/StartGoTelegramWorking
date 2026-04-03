@@ -21,6 +21,7 @@ func main() {
 		bot.WithCheckInitTimeout(1 * time.Minute),
 		bot.WithDefaultHandler(handlers.Handler),
 		bot.WithMessageTextHandler("/start", bot.MatchTypeExact, handlers.HandlerStart),
+		bot.WithWorkers(100),
 	}
 	b, err := bot.New(bot_key, opts...)
 	if err != nil {
